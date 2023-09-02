@@ -35,7 +35,7 @@ const getSavedPostsRoute = require("./Routes/GET/getSavedPostsRoute");
 const getOtherUserPostCountRoute = require("./Routes/GET/getOtherUserPostCountRoute");
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://recipediy.onrender.com",
   credentials: true, // Allow credentials (e.g., cookies, authorization headers)
   allowedHeaders: ["Content-Type", "Authorization"], // Specify the allowed headers
 };
