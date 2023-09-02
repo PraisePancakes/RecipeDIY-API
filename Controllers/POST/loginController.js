@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const User = require("../../Models/User");
 const jwt = require("jsonwebtoken");
 
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config();
 
 const ACCESS_TOKEN_SECRET_KEY = process.env.ACCESS_TOKEN_SECRET_KEY;
 const ACCESS_TOKEN_EXPIRY = process.env.ACCESS_TOKEN_EXPIRY;

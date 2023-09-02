@@ -1,6 +1,6 @@
 const User = require("../../Models/User");
 const bcrypt = require("bcrypt");
-require("dotenv").config({ path: "../../.env" });
+require("dotenv").config();
 const ADMIN_UNAME = process.env.ADMIN_UNAME;
 
 module.exports = async (req, res) => {
