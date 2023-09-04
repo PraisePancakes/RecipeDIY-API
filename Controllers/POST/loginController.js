@@ -49,27 +49,27 @@ module.exports = async (req, res) => {
   res.clearCookie("_RT", {
     expires: new Date(0),
     httpOnly: true,
-    sameSite: "lax",
+    sameSite: "none",
   });
 
   res.clearCookie("_AT", {
     expires: new Date(0),
     httpOnly: true,
-    sameSite: "lax",
+    sameSite: "none",
   });
 
   res.cookie("_AT", ACCESS_TOKEN, {
     path: "/",
     httpOnly: true,
     expiresIn: new Date(Date.now() + 60000 * 60 * 24 * 24 * 6),
-    sameSite: "lax",
+    sameSite: "none",
   });
 
   res.cookie("_RT", REFRESH_TOKEN, {
     path: "/",
     httpOnly: true,
     expiresIn: new Date(Date.now() + 60000 * 60 * 24 * 24 * 6),
-    sameSite: "lax",
+    sameSite: "none",
   });
 
   return res.status(200).send({
