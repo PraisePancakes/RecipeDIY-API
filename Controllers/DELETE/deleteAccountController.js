@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
     const passwordMatches = await bcrypt.compare(password, user.password);
 
     if (!passwordMatches) {
-      return res.status(401).json({ error: "Invalid password" });
+      return res.status(400).json({ error: "Invalid password" });
     }
 
     if (user.profileImgURL !== "") {

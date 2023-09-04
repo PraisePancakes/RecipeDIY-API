@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
   try {
     user = await User.findById(userId, "-password");
     if (!user) {
-      return res.status(400).send({ message: "User not found" });
+      return res.status(404).send({ message: "User not found" });
     }
   } catch (error) {
     return new Error(error);

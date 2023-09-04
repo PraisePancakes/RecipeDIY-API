@@ -49,6 +49,6 @@ module.exports = async (req, res) => {
     });
   } catch (error) {
     // If the refresh token has expired or any other error occurs, handle it here.
-    return res.status(400).send({ message: "No _RT must be authenticate" });
+    return res.status(401).send({ message: "No _RT must be authenticate" });
   }
 };

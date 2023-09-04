@@ -39,6 +39,7 @@ const corsOptions = {
   credentials: true, // Allow credentials (e.g., cookies, authorization headers)
   allowedHeaders: ["Content-Type", "Authorization"], // Specify the allowed headers
 };
+//"https://main--soft-queijadas-a8cf6f.netlify.app"
 app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(

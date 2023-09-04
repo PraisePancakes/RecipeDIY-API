@@ -8,20 +8,20 @@ module.exports = async (req, res, next) => {
 
   try {
     if (!_AT) {
-      return res
-        .status(406)
-        .send({ message: "EXPIRED OR MISSING ACCESS TOKEN" });
+      return res.status(401).send({ message: "MISSING ACCESS TOKEN" });
     }
     jwt.verify(_AT, ACCESS_TOKEN_SECRET_KEY, (err, user) => {
       if (err) {
-        return res.status(400).send({ message: "Invalid Token Authorization" });
+        return res
+          .status(401)
+          .send({ message: "Expired Or Invalid Token Authorization" });
       }
       req.id = user.id;
       next();
     });
   } catch (error) {
     return res
-      .status(404)
+      .status(500)
       .send({ message: "Unable to process request : request not found" });
   }
 };

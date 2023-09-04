@@ -15,17 +15,17 @@ module.exports = async (req, res) => {
   const userExists = await User.findOne({ username });
 
   if (username == "") {
-    return res.status(401).send({ message: "INVALID USERNAME INPUT" });
+    return res.status(400).send({ message: "INVALID USERNAME INPUT" });
   } else if (password == "") {
-    return res.status(401).send({ message: "INVALID PASSWORD INPUT" });
+    return res.status(400).send({ message: "INVALID PASSWORD INPUT" });
   } else if (!userExists) {
-    return res.status(401).send({ message: "INVALID USERNAME OR PASSWORD" });
+    return res.status(400).send({ message: "INVALID USERNAME OR PASSWORD" });
   }
 
   const matched = await bcrypt.compare(password, userExists.password);
 
   if (!matched) {
-    return res.status(401).send({ message: "INVALID USERNAME OR PASSWORD" });
+    return res.status(400).send({ message: "INVALID USERNAME OR PASSWORD" });
   }
 
   const ACCESS_TOKEN = jwt.sign(

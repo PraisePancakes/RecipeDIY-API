@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
     }
 
     if (!friendId || !mongoose.isValidObjectId(friendId)) {
-      return res.status(400).json({ error: "Invalid friendId" });
+      return res.status(404).json({ error: "Invalid friendId" });
     }
 
     if (user.friends.includes(friendId)) {
