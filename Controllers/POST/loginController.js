@@ -50,12 +50,14 @@ module.exports = async (req, res) => {
     expires: new Date(0),
     httpOnly: true,
     sameSite: "none",
+    secure: true,
   });
 
   res.clearCookie("_AT", {
     expires: new Date(0),
     httpOnly: true,
     sameSite: "none",
+    secure: true,
   });
 
   res.cookie("_AT", ACCESS_TOKEN, {
@@ -63,6 +65,7 @@ module.exports = async (req, res) => {
     httpOnly: true,
     expiresIn: new Date(Date.now() + 60000 * 60 * 24 * 24 * 6),
     sameSite: "none",
+    secure: true,
   });
 
   res.cookie("_RT", REFRESH_TOKEN, {
@@ -70,6 +73,7 @@ module.exports = async (req, res) => {
     httpOnly: true,
     expiresIn: new Date(Date.now() + 60000 * 60 * 24 * 24 * 6),
     sameSite: "none",
+    secure: true,
   });
 
   return res.status(200).send({
